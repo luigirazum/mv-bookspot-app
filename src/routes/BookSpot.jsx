@@ -1,9 +1,12 @@
 import { Outlet } from 'react-router-dom';
+import Header from '../components/Header/Header';
 
 const BookSpot = () => (
   <>
-    <h1>Welcome to BookSpot</h1>
-    <Outlet />
+    <Header />
+    <main className="wrapper">
+      <Outlet />
+    </main>
   </>
 );
 

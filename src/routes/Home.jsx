@@ -1,5 +1,12 @@
+import BookList from '../components/BookList/BookList';
+import AddBook from '../components/AddBook/AddBook';
+
 const Home = () => (
-  <h2>Books page</h2>
+  <>
+    <BookList />
+    <hr />
+    <AddBook />
+  </>
 );
 
 export default Home;

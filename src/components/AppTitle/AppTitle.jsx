@@ -6,8 +6,9 @@ const AppTitle = () => (
     to="/"
     className="appTitle"
   >
+    BookSP
     <Logo />
-    BookSpot
+    T
   </Link>
 );
 

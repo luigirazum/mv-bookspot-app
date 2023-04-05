@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mv-bookspot-app/static/css/main.ea684866.css",
+    "main.js": "/mv-bookspot-app/static/js/main.46f3cfb9.js",
+    "static/js/787.e3cb918c.chunk.js": "/mv-bookspot-app/static/js/787.e3cb918c.chunk.js",
+    "index.html": "/mv-bookspot-app/index.html",
+    "main.ea684866.css.map": "/mv-bookspot-app/static/css/main.ea684866.css.map",
+    "main.46f3cfb9.js.map": "/mv-bookspot-app/static/js/main.46f3cfb9.js.map",
+    "787.e3cb918c.chunk.js.map": "/mv-bookspot-app/static/js/787.e3cb918c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ea684866.css",
+    "static/js/main.46f3cfb9.js"
+  ]
+}

@@ -27,8 +27,8 @@
 
   /* font sizes */
 
-  /* --fs-base: clamp(0.875rem, calc(2vw - 0.125rem), 2.25rem); */
-  --fs-base: clamp(1rem, calc(2vw - 0.125rem), 1rem);
+  /* --fs-base: clamp(1rem, calc(2vw - 0.125rem), 1rem); font-base fixed to 16px */
+  --fs-base: clamp(0.875rem, calc(2vw - 0.125rem), 1.125rem);
   --ff-appTitle: var(--fa-main);
   --fs-appTitle: 1.875rem;
   --ff-navLink: var(--fa-main);
@@ -118,6 +118,7 @@ body {
 }
 
 body {
+  min-inline-size: 320px;
   font-family: var(--fa-main);
   line-height: 1;
   color: var(--color-gray-12);
@@ -138,9 +139,9 @@ p {
 }
 
 .App {
-  inline-size: 87.5ch;
-  margin-inline: auto;
-  margin-block: 7ch 11ch;
+  inline-size: 87.5%;
+  margin-inline: 6.25%;
+  margin-block: 7vw 11vw;
   padding: 0;
   background-color: var(--color-white-fa);
   border-radius: var(--border-radius-def);
@@ -150,15 +151,18 @@ p {
 /* styles for the header section */
 header {
   inline-size: 100%;
-  padding-inline: 6.25ch;
-  padding-block: 1.5ch;
+  padding-inline: 6.25vw;
+  padding-block: 1.5vw;
   font-family: var(--fa-main);
   display: flex;
   align-items: center;
   gap: 2.9em;
   background-color: var(--color-white);
+  border-block-end: var(--border-common);
+  flex-wrap: wrap;
 }
 
+/* styles for the brand-name */
 .appTitle {
   --logo-size: 0.73em;
   --title-color: var(--color-primary);
@@ -194,6 +198,7 @@ header {
   padding: 0.06em;
 }
 
+/* styles for the NavBar */
 nav {
   font-family: var(--ff-navLink);
   font-size: var(--fs-navLink);
@@ -231,7 +236,10 @@ ul {
   opacity: var(--color-opacity-none);
 }
 
+/* styles for the Avatar */
 .avatar {
+  --avatar-padding: 0.275ch;
+
   margin-inline-start: auto;
   color: var(--color-primary);
   background-color: var(--color-white);
@@ -240,20 +248,23 @@ ul {
   display: flex;
   align-content: center;
   font-size: 1.5rem;
-  padding: 0.275ch;
+  padding: var(--avatar-padding);
   cursor: pointer;
 }
 
 .avatar:hover {
   color: var(--color-gray-12);
-  border-color: var(--color-primary);
+  border: var(--border-active);
+  padding: calc(var(--avatar-padding) - 1px);
 }
 
 .avatar:active {
-  border-color: var(--color-black);
+  border: var(--border-black);
   background-color: var(--color-gray-e8);
+  padding: calc(var(--avatar-padding) - 1px);
 }
 
+/* wrapper applied to main */
 .wrapper {
   inline-size: 100%;
   padding-inline: 6.25ch;
@@ -261,13 +272,18 @@ ul {
 }
 
 /* styles for book-list section */
-.bookList {
+.bookList,
+.categories,
+.profile {
   display: flex;
   flex-direction: column;
   gap: 0.938rem;
 }
 
-.book {
+/* styles for Book */
+.book,
+.categories,
+.profile {
   background-color: var(--color-white);
   border: var(--border-common);
   border-radius: var(--border-radius-def);
@@ -275,11 +291,17 @@ ul {
   padding-inline: 1.6em;
 }
 
-.bookCategory {
+.bookCategory,
+.loading {
   font-family: var(--ff-bookCategory);
   font-size: var(--fs-bookCategory);
   opacity: var(--color-opacity-50);
   margin-block-end: 0.25rem;
+}
+
+.bookData {
+  display: flex;
+  align-items: baseline;
 }
 
 .bookTitle,
@@ -290,12 +312,26 @@ ul {
   letter-spacing: var(--le-bookTitle);
 }
 
-.bookAuthor {
+.bookAuthor,
+.bookCompleted {
   font-family: var(--ff-bookAuthor);
   font-size: var(--fs-bookAuthor);
   color: var(--color-blue);
 }
 
+.bookPercent {
+  font-family: var(--ff-percent);
+  font-size: var(--fs-percent);
+  font-weight: var(--fw-regular);
+}
+
+.bookCompleted {
+  font-family: var(--ff-percent);
+  color: var(--color-gray-12);
+  opacity: var(--color-opacity-50);
+}
+
+/* styles for comments, remove and edit */
 .actionButtons {
   margin-block-start: 1.3em;
   gap: 0;
@@ -345,7 +381,7 @@ hr {
   margin-block-end: 1.813rem;
 }
 
-/* styles for add-new-book section */
+/* styles for add-new-book form section */
 .addBook,
 input {
   font-family: var(--ff-input);
@@ -433,6 +469,85 @@ input:invalid:focus {
   border: var(--border-black);
 }
 
-.categoriesTitle {
-  margin-block-end: 1em;
+.categories,
+.profile {
+  text-align: center;
+  padding-block-end: 40rem;
+}
+
+.categories .btn {
+  max-inline-size: 10rem;
+  align-self: center;
+}
+
+.loading {
+  font-size: var(--fs-bookTitle);
+  animation-iteration-count: infinite;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
+
+  /* animation-name: loading; */
+}
+
+@keyframes loading {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.25;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    margin-inline: auto;
+    margin-block: 0.75rem;
+  }
+
+  header {
+    padding-inline: 1.125rem;
+    padding-block: 0.75rem;
+    gap: 1.75em;
+  }
+
+  ul {
+    gap: 1.5em;
+  }
+
+  .wrapper {
+    padding-inline: 1.125rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App {
+    inline-size: 100%;
+    margin: 0;
+  }
+
+  header {
+    padding-inline: 0.5rem;
+    padding-block: 0.75rem;
+    column-gap: 2em;
+    row-gap: 1em;
+  }
+
+  nav {
+    order: 3;
+    margin-inline: auto;
+  }
+
+  ul {
+    gap: 5em;
+  }
+
+  .wrapper {
+    padding-inline: 0.5rem;
+    padding-block: 0.75rem 4.5rem;
+  }
+
+  .bookList {
+    gap: 0.5em;
+  }
 }

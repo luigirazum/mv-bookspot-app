@@ -6,12 +6,24 @@ const Book = ({ bookItem: { title, author, category } }) => (
     <h3 className="bookCategory">
       {category}
     </h3>
-    <h2 className="bookTitle">
-      {title}
-    </h2>
-    <p className="bookAuthor">
-      {author}
-    </p>
+    <div className="bookData">
+      <div className="bookDescription">
+        <h2 className="bookTitle">
+          {title}
+        </h2>
+        <p className="bookAuthor">
+          {author}
+        </p>
+      </div>
+      <div className="bookProgress">
+        <h2 className="bookPercent">
+          0%
+        </h2>
+        <p className="bookCompleted">
+          completed
+        </p>
+      </div>
+    </div>
     <ActionButtons />
   </article>
 );

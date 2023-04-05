@@ -30,6 +30,8 @@
   - [⭐ Show your support ](#-show-your-support-)
   - [📝 License ](#-license-)
 
+<div align="center"><hr width="250px"/></div>
+
 # 📘 BookSpot App <a name="about-project"></a>
 
 *BookSpot App* is the MVP of a [SPA](https://en.wikipedia.org/wiki/Single-page_application) application that lets users display a list of books, add a book to the list and, remove a selected book.
@@ -60,6 +62,10 @@ This project was bootstrapped with:
     <li>
       <a href="https://create-react-app.dev/" target="_blank" rel="noopener noreferrer">
       <img align="center" title="Create React App CLI" alt="create react app" width="20px" height="20px" src="https://create-react-app.dev/img/logo.svg" /> Create React App</a>
+    </li>
+    <li>
+      <a href="https://redux-toolkit.js.org/" target="_blank" rel="noopener noreferrer">
+      <img align="center" title="Redux Toolkit" alt="redux toolkit" width="20px" height="20px" src="https://d33wubrfki0l68.cloudfront.net/0834d0215db51e91525a25acf97433051f280f2f/c30f5/img/redux.svg" /> Redux Toolkit</a>
     </li>
   </ul>
 
@@ -139,24 +145,26 @@ To get a local copy of this project up and running, follow these steps.
   - Your app is ready to be deployed!\
     See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-<!--
-### Deployment
+- #### Deploy
+    ```sh
+    npm deploy
+    ```
 
-You can deploy this project using:
-```sh
-  npm deploy
-```
--->
+  - Deploys the project using `gh-pages`.
+    - Under the hood, it runs `npm run build` first.
+    - The project then is published using github pages.
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## 👥 Authors <a name="authors"></a>
 
-👨‍💻 Luis Zubia
+👨‍💻 **Luis Zubia**
 
-- GitHub: <a href="https://github.com/luigirazum" target="_blank" rel="noopener noreferrer">@luigirazum</a>
-- Twitter: <a href="https://twitter.com/LuigiRazum" target="_blank" rel="noopener noreferrer">@LuigiRazum</a>
-- LinkedIn: <a href="https://linkedin.com/in/luiszubia" target="_blank" rel="noopener noreferrer">Luis Zubia</a>
+- GitHub: <a href="https://github.com/luigirazum" target="_blank" rel="noopener noreferrer">**@luigirazum**</a>
+- Twitter: <a href="https://twitter.com/LuigiRazum" target="_blank" rel="noopener noreferrer">**@LuigiRazum**</a>
+- LinkedIn: <a href="https://linkedin.com/in/luiszubia" target="_blank" rel="noopener noreferrer">**Luis Zubia**</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -182,7 +190,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## 🙏 Acknowledgments <a name="acknowledgments"></a>
 - 👏 I would like to thank the support of my partners.
-- 👏 Also thanks to [Usman Suleiman Babakolo](https://github.com/usmansbk) a Micronaut who provided a live working demo of how this project should look finished. You can check it out clicking the next [Bookstore CMS](https://pedantic-beaver-cb923b.netlify.app/#/) link.
+- 👏 Also thanks to [**Usman Suleiman Babakolo**](https://github.com/usmansbk) a Micronaut who provided a live working demo of how this project should look finished. You can check it out clicking the next [**Bookstore CMS**](https://pedantic-beaver-cb923b.netlify.app/#/) link.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

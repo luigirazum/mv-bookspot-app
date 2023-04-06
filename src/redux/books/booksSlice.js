@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import booksInitializer from '../initializers/booksInitializer';
 
+const selectLibrary = (store) => store.books;
+
 const initialState = {
   library: [...booksInitializer],
   isLoading: false,
@@ -32,6 +34,8 @@ const booksSlice = createSlice({
     },
   },
 });
+
+export { selectLibrary };
 
 export const { addBook, removeBook } = booksSlice.actions;
 

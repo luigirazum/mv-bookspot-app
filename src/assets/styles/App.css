@@ -282,6 +282,7 @@ ul {
 
 /* styles for Book */
 .book,
+.booksAvailable,
 .categories,
 .profile {
   background-color: var(--color-white);
@@ -289,6 +290,24 @@ ul {
   border-radius: var(--border-radius-def);
   padding-block: 1.75em;
   padding-inline: 1.6em;
+}
+
+.booksAvailable,
+.booksAvailable h2 {
+  text-align: center;
+}
+
+.booksAvailable > p {
+  margin-block: 1em 2em;
+}
+
+.suggestion {
+  text-transform: uppercase;
+  padding: 1em;
+  line-height: 1.25;
+  font-size: var(--fs-bookCategory);
+  background-color: var(--color-gray-c4);
+  border-radius: var(--border-radius-def);
 }
 
 .bookCategory,
@@ -305,11 +324,13 @@ ul {
 }
 
 .bookTitle,
+.booksAvailable h2,
 .categoriesTitle,
 .underConstruction {
   font-family: var(--ff-bookTitle);
   font-size: var(--fs-bookTitle);
   letter-spacing: var(--le-bookTitle);
+  text-transform: capitalize;
 }
 
 .bookAuthor,

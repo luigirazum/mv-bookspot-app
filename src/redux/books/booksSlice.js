@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import booksInitializer from '../initializers/booksInitializer';
 
 const initialState = {
-  library: [],
+  library: [...booksInitializer],
   isLoading: false,
 };
 

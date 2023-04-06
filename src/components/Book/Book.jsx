@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 import ActionButtons from '../ActionButtons/ActionButtons';
 
-const Book = ({ bookItem: { title, author, category } }) => (
+const Book = ({
+  bookItem: {
+    id, title, author, category,
+  },
+}) => (
   <article className="book">
     <h3 className="bookCategory">
       {category}
@@ -24,12 +28,13 @@ const Book = ({ bookItem: { title, author, category } }) => (
         </p>
       </div>
     </div>
-    <ActionButtons />
+    <ActionButtons data={id} />
   </article>
 );
 
 Book.propTypes = {
   bookItem: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,

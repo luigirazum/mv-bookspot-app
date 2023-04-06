@@ -16,7 +16,7 @@ const AddBook = () => {
       // add the book to the list
       dispatch(
         addBook({
-          item_id: uuidv4(),
+          id: uuidv4(),
           title: newTitle,
           author: newAuthor,
           category: getRandomCategory(),

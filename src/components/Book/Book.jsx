@@ -19,14 +19,6 @@ const Book = ({
           {author}
         </p>
       </div>
-      <div className="bookProgress">
-        <h2 className="bookPercent">
-          0%
-        </h2>
-        <p className="bookCompleted">
-          completed
-        </p>
-      </div>
     </div>
     <ActionButtons data={id} />
   </article>

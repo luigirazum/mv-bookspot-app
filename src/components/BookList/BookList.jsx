@@ -1,11 +1,14 @@
+import { useSelector } from 'react-redux';
+import { selectLibrary } from '../../redux/books/booksSlice';
 import Book from '../Book/Book';
 
 const BookList = () => {
-  const books = [];
-  const booksList = books
+  const { library } = useSelector(selectLibrary);
+
+  const booksList = library
     .map((book) => (
       <Book
-        key={book.id}
+        key={book.item_id}
         bookItem={book}
       />
     ));

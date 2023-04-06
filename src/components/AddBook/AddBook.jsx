@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../../redux/books/booksSlice';
+import getRandomCategory from '../../redux/initializers/categoryInitializer';
 
 const AddBook = () => {
   const [newTitle, setNewTitle] = useState('');
@@ -18,12 +19,13 @@ const AddBook = () => {
           item_id: uuidv4(),
           title: newTitle,
           author: newAuthor,
-          category: 'testing',
+          category: getRandomCategory(),
         }),
       );
       // clear the form
       setNewTitle('');
       setNewAuthor('');
+      e.target.parentElement.previousSibling.previousSibling.focus();
     }
   };
 
@@ -32,10 +34,17 @@ const AddBook = () => {
     : setNewAuthor(e.target.value)
   );
 
+  const onKeyDownCaptureHandler = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      e.target.nextSibling.focus();
+    }
+  };
+
   return (
     <section className="addBook">
       <h2>Add New Book</h2>
-      <form onSubmit={onSubmitHandler}>
+      <form id="addNewBook" onSubmit={onSubmitHandler}>
         <input
           type="text"
           id="title"
@@ -46,6 +55,7 @@ const AddBook = () => {
           required
           className="newTitle"
           onChange={onChangeHandler}
+          onKeyDownCapture={onKeyDownCaptureHandler}
         />
         <input
           type="text"
@@ -57,9 +67,11 @@ const AddBook = () => {
           required
           className="newAuthor"
           onChange={onChangeHandler}
+          onKeyDownCapture={onKeyDownCaptureHandler}
         />
         <button
           type="submit"
+          id="submitBook"
           className="btn btn-add"
         >
           Add Book

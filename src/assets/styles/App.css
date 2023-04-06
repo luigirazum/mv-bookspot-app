@@ -383,6 +383,7 @@ ul {
   font-size: var(--fs-actionBtn);
   color: var(--color-blue);
   border-block-end: var(--border-clear);
+  text-transform: capitalize;
 }
 
 .btn-link:hover {

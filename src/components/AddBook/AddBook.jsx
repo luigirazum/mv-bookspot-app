@@ -1,34 +1,84 @@
-const AddBook = () => (
-  <section className="addBook">
-    <h2>Add New Book</h2>
-    <form>
-      <input
-        type="text"
-        id="title"
-        placeholder="Book title"
-        pattern="((\w|\d)+\s?)*(\w|\d)+"
-        minLength="6"
-        required
-        className="newTitle"
-      />
-      <input
-        type="text"
-        id="author"
-        placeholder="Author"
-        minLength="6"
-        pattern="(\w+\s?)*(\w)+"
-        required
-        className="newAuthor"
-      />
-      <button
-        type="submit"
-        className="btn btn-add"
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { addBook } from '../../redux/books/booksSlice';
+import getRandomCategory from '../../redux/initializers/categoryInitializer';
 
-      >
-        Add Book
-      </button>
-    </form>
-  </section>
-);
+const AddBook = () => {
+  const [newTitle, setNewTitle] = useState('');
+  const [newAuthor, setNewAuthor] = useState('');
+  const dispatch = useDispatch();
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    // check if inputs are valid
+    if (e.target.checkValidity()) {
+      // add the book to the list
+      dispatch(
+        addBook({
+          id: uuidv4(),
+          title: newTitle,
+          author: newAuthor,
+          category: getRandomCategory(),
+        }),
+      );
+      // clear the form
+      setNewTitle('');
+      setNewAuthor('');
+      e.target.parentElement.previousSibling.previousSibling.focus();
+    }
+  };
+
+  const onChangeHandler = (e) => (e.target.id === 'title'
+    ? setNewTitle(e.target.value)
+    : setNewAuthor(e.target.value)
+  );
+
+  const onKeyDownCaptureHandler = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      e.target.nextSibling.focus();
+    }
+  };
+
+  return (
+    <section className="addBook">
+      <h2>Add New Book</h2>
+      <form id="addNewBook" onSubmit={onSubmitHandler}>
+        <input
+          type="text"
+          id="title"
+          value={newTitle}
+          placeholder="Book title"
+          pattern="((\w|\d)+\s?)*(\w|\d)+"
+          minLength="6"
+          required
+          className="newTitle"
+          onChange={onChangeHandler}
+          onKeyDownCapture={onKeyDownCaptureHandler}
+        />
+        <input
+          type="text"
+          id="author"
+          value={newAuthor}
+          placeholder="Author"
+          minLength="6"
+          pattern="(\w+\s?)*(\w)+"
+          required
+          className="newAuthor"
+          onChange={onChangeHandler}
+          onKeyDownCapture={onKeyDownCaptureHandler}
+        />
+        <button
+          type="submit"
+          id="submitBook"
+          className="btn btn-add"
+        >
+          Add Book
+        </button>
+      </form>
+    </section>
+  );
+};
 
 export default AddBook;

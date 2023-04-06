@@ -267,8 +267,8 @@ ul {
 /* wrapper applied to main */
 .wrapper {
   inline-size: 100%;
-  padding-inline: 6.25ch;
-  padding-block: 2.5ch 16.5ch;
+  padding-inline: 6.25vw;
+  padding-block: 2vw 16.5vw;
 }
 
 /* styles for book-list section */
@@ -282,6 +282,7 @@ ul {
 
 /* styles for Book */
 .book,
+.booksAvailable,
 .categories,
 .profile {
   background-color: var(--color-white);
@@ -289,6 +290,24 @@ ul {
   border-radius: var(--border-radius-def);
   padding-block: 1.75em;
   padding-inline: 1.6em;
+}
+
+.booksAvailable,
+.booksAvailable h2 {
+  text-align: center;
+}
+
+.booksAvailable > p {
+  margin-block: 1em 2em;
+}
+
+.suggestion {
+  text-transform: uppercase;
+  padding: 1em;
+  line-height: 1.25;
+  font-size: var(--fs-bookCategory);
+  background-color: var(--color-gray-c4);
+  border-radius: var(--border-radius-def);
 }
 
 .bookCategory,
@@ -305,11 +324,13 @@ ul {
 }
 
 .bookTitle,
+.booksAvailable h2,
 .categoriesTitle,
 .underConstruction {
   font-family: var(--ff-bookTitle);
   font-size: var(--fs-bookTitle);
   letter-spacing: var(--le-bookTitle);
+  text-transform: capitalize;
 }
 
 .bookAuthor,
@@ -362,6 +383,7 @@ ul {
   font-size: var(--fs-actionBtn);
   color: var(--color-blue);
   border-block-end: var(--border-clear);
+  text-transform: capitalize;
 }
 
 .btn-link:hover {
@@ -398,9 +420,10 @@ input {
 
 form {
   display: flex;
-  gap: 2em;
-
-  --form-basis: 4.5rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.125rem;
 }
 
 input {
@@ -426,14 +449,6 @@ input:invalid:focus {
   outline: var(--border-input-invalid);
 }
 
-.newTitle {
-  flex: 3 0 var(--form-basis);
-}
-
-.newAuthor {
-  flex: 1.8 0 var(--form-basis);
-}
-
 .btn {
   font-family: var(--ff-robotoslab);
   color: var(--color-white);
@@ -444,8 +459,18 @@ input:invalid:focus {
   padding: 0.95em;
 }
 
+.newTitle {
+  flex-basis: 28rem;
+  flex-grow: 90;
+}
+
+.newAuthor {
+  flex-basis: 19rem;
+  flex-grow: 65;
+}
+
 .btn-add {
-  flex: 1 0 var(--form-basis);
+  flex-basis: 10rem;
   font-family: var(--ff-btnAdd);
   font-weight: var(--fw-bold);
   font-size: var(--fs-btnAdd);
@@ -533,13 +558,20 @@ input:invalid:focus {
     row-gap: 1em;
   }
 
+  .appTitle {
+    flex-grow: 50;
+    flex-basis: 17rem;
+  }
+
   nav {
     order: 3;
-    margin-inline: auto;
+    flex-basis: 100%;
+    flex-grow: 99;
   }
 
   ul {
     gap: 5em;
+    justify-content: center;
   }
 
   .wrapper {
@@ -549,5 +581,18 @@ input:invalid:focus {
 
   .bookList {
     gap: 0.5em;
+  }
+
+  .actionButtons {
+    justify-content: flex-start;
+  }
+
+  form {
+    gap: 0.825rem;
+  }
+
+  input,
+  .btn-add {
+    flex-basis: 100%;
   }
 }

@@ -1,8 +1,13 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import apiRequest from '../api/apiConfig';
+import asyncSleep from '../initializers/sleepTimer';
 
-const selectLibrary = (store) => store.books;
+/*-------------------------------------------------
+ * Selectors DEFINITIONS (for useSelector)
+ *-------------------------------------------------*/
+const selectLibrary = (store) => store.books.library;
+const selectIsLoading = (store) => store.books.isLoading;
 
 /*-------------------------------------------------
  * Action Type DEFINITIONS
@@ -17,6 +22,7 @@ const initialState = {
 const fetchBooks = createAsyncThunk(
   FETCH_BOOKS,
   async (_, thunkAPI) => {
+    await asyncSleep(3.5);
     try {
       const { data } = await axios
         .request(apiRequest('GET'));
@@ -87,8 +93,10 @@ const booksSlice = createSlice({
   },
 });
 
-export { selectLibrary };
+export { selectLibrary, selectIsLoading };
 
 export const { addBook, removeBook } = booksSlice.actions;
+
+export { fetchBooks };
 
 export default booksSlice.reducer;

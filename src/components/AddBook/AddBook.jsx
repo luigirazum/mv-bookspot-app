@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../../redux/books/booksSlice';
+import { saveBook } from '../../redux/books/booksSlice';
 import getRandomCategory from '../../redux/initializers/categoryInitializer';
 
 const AddBook = () => {
@@ -13,15 +13,14 @@ const AddBook = () => {
     e.preventDefault();
     // check if inputs are valid
     if (e.target.checkValidity()) {
-      // add the book to the list
-      dispatch(
-        addBook({
-          id: uuidv4(),
-          title: newTitle,
-          author: newAuthor,
-          category: getRandomCategory(),
-        }),
-      );
+      // save the book at the API
+      dispatch(saveBook({
+        item_id: uuidv4(),
+        title: newTitle,
+        author: newAuthor,
+        category: getRandomCategory(),
+      }));
+
       // clear the form
       setNewTitle('');
       setNewAuthor('');

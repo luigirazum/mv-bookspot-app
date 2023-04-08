@@ -6,7 +6,7 @@ const Profile = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2500);
+    }, 3500);
   }, []);
 
   return (

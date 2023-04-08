@@ -48,7 +48,7 @@ const BookList = () => {
       {
         isLoading ? (
           <aside className="booksAvailable">
-            <h2>books available</h2>
+            <h2>one moment please, we are</h2>
             <p
               className="loading"
               style={{
@@ -57,6 +57,7 @@ const BookList = () => {
             >
               Loading...
             </p>
+            <h2>the current list of Books</h2>
           </aside>
         ) : showBooksList()
       }

@@ -13,6 +13,7 @@ const selectIsLoading = (store) => store.books.isLoading;
  * Action Type DEFINITIONS
  *-------------------------------------------------*/
 const FETCH_BOOKS = 'books/fetchBooks';
+const SAVE_BOOK = 'books/saveBook';
 
 const initialState = {
   library: [],
@@ -27,6 +28,30 @@ const fetchBooks = createAsyncThunk(
       const { data } = await axios
         .request(apiRequest('GET'));
       return data;
+    } catch (error) {
+      return thunkAPI
+        .rejectWithValue('We are sorry to tell you that something went wrong.');
+      }
+    },
+);
+
+const saveBook = createAsyncThunk(
+  SAVE_BOOK,
+  async (newBook, thunkAPI) => {
+    try {
+      await axios
+        .request(apiRequest('POST', newBook));
+
+      const {
+        item_id: id, title, author, category,
+      } = newBook;
+
+      return ({
+        id,
+        title,
+        author,
+        category,
+      });
     } catch (error) {
       return thunkAPI
         .rejectWithValue('We are sorry to tell you that something went wrong.');

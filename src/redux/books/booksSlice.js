@@ -31,8 +31,8 @@ const fetchBooks = createAsyncThunk(
     } catch (error) {
       return thunkAPI
         .rejectWithValue('We are sorry to tell you that something went wrong.');
-      }
-    },
+    }
+  },
 );
 
 const saveBook = createAsyncThunk(
@@ -114,6 +114,29 @@ const booksSlice = createSlice({
           ...state,
           isLoading: false,
           error: payload,
+        }))
+
+      .addCase(saveBook.pending,
+        (state) => ({
+          ...state,
+          isLoading: true,
+        }))
+
+      .addCase(saveBook.fulfilled,
+        (state, { payload }) => ({
+          ...state,
+          library: [
+            ...state.library,
+            payload,
+          ],
+          isLoading: false,
+        }))
+
+      .addCase(saveBook.rejected,
+        (state, { payload }) => ({
+          ...state,
+          isLoading: false,
+          error: payload,
         }));
   },
 });
@@ -122,6 +145,6 @@ export { selectLibrary, selectIsLoading };
 
 export const { addBook, removeBook } = booksSlice.actions;
 
-export { fetchBooks };
+export { fetchBooks, saveBook };
 
 export default booksSlice.reducer;

@@ -14,6 +14,7 @@ const selectIsLoading = (store) => store.books.isLoading;
  *-------------------------------------------------*/
 const FETCH_BOOKS = 'books/fetchBooks';
 const SAVE_BOOK = 'books/saveBook';
+const DELETE_BOOK = 'books/deleteBook';
 
 const initialState = {
   library: [],
@@ -52,6 +53,23 @@ const saveBook = createAsyncThunk(
         author,
         category,
       });
+    } catch (error) {
+      return thunkAPI
+        .rejectWithValue('We are sorry to tell you that something went wrong.');
+    }
+  },
+);
+
+const deleteBook = createAsyncThunk(
+  DELETE_BOOK,
+  async (bookId, thunkAPI) => {
+    try {
+      await axios
+        .request(apiRequest('DELETE', bookId));
+
+      const { item_id: id } = bookId;
+
+      return ({ id });
     } catch (error) {
       return thunkAPI
         .rejectWithValue('We are sorry to tell you that something went wrong.');
@@ -145,6 +163,6 @@ export { selectLibrary, selectIsLoading };
 
 export const { addBook, removeBook } = booksSlice.actions;
 
-export { fetchBooks, saveBook };
+export { fetchBooks, saveBook, deleteBook };
 
 export default booksSlice.reducer;

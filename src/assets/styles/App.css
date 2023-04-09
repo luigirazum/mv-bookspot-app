@@ -334,9 +334,9 @@ ul {
   display: flex;
   width: var(--progressContainer);
   height: var(--progressContainer);
-  align-content: center;
-
-  /* padding: 0.625rem 0.625rem 0.75rem 0.75rem; */
+  padding: 0.625rem 0.625rem 0.75rem 0.75rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .bpIcon {
@@ -372,13 +372,15 @@ ul {
 }
 
 .bpPercentage {
-  font-weight: normal;
-  font-size: 2rem;
+  font-family: var(--ff-percent);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-percent);
   margin-inline: 0.75rem 1.5rem;
 }
 
 .bpCompleted {
-  font-size: 0.875rem;
+  font-family: var(--ff-completed);
+  font-size: var(--fs-completed);
   opacity: 0.5;
   margin-inline: 0.75rem 1.5rem;
 }
@@ -429,6 +431,23 @@ ul {
   font-family: var(--ff-percent);
   color: var(--color-gray-12);
   opacity: var(--color-opacity-50);
+}
+
+.bchCurrent {
+  font-family: var(--ff-current);
+  font-weight: var(--fw-thin);
+  font-size: var(--fs-current);
+  color: var(--black-two);
+  opacity: 0.5;
+  margin-block-end: 0.438rem;
+}
+
+.bchName {
+  font-family: var(--ff-reading);
+  font-size: var(--fs-reading);
+  font-weight: var(--fw-thin);
+  letter-spacing: -0.4px;
+  color: var(--black-two);
 }
 
 /* styles for comments, remove and edit */
@@ -686,18 +705,3 @@ input:invalid:focus {
 }
 
 /* EOF: ms mxw-480px */
-
-.bchCurrent {
-  font-weight: var(--fw-thin);
-  font-size: 0.813rem;
-  color: var(--black-two);
-  opacity: 0.5;
-  margin-block-end: 0.438rem;
-}
-
-.bchName {
-  font-size: 1rem;
-  font-weight: var(--fw-thin);
-  letter-spacing: -0.4px;
-  color: var(--black-two);
-}

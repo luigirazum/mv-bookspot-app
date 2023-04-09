@@ -596,3 +596,197 @@ input:invalid:focus {
     flex-basis: 100%;
   }
 }
+
+.bookInfo,
+.bpPercentage,
+.bpCompleted {
+  font-family: var(--ff-montserrat);
+  color: var(--black-two);
+}
+
+.bookInfo {
+  flex-grow: 2.1;
+}
+
+.bookProgress {
+  flex-grow: 1;
+  display: flex;
+  padding-block: 0.38rem 0.625rem;
+}
+
+.bookChapter {
+  flex-grow: 1.2;
+  margin-block: auto;
+  margin-inline-start: 1.5rem;
+  padding-block: 0 0.188rem;
+}
+
+.biCategory,
+.biAuthor,
+.biTitle {
+  text-transform: capitalize;
+}
+
+.biCategory,
+.biAuthor {
+  font-size: 0.875rem;
+}
+
+.biCategory {
+  font-weight: var(--fw-bold);
+  opacity: 0.5;
+}
+
+.biTitle,
+.biAuthor,
+.bchCurrent,
+.bchName,
+.bchUpdateButton {
+  font-family: var(--ff-robotoslab);
+}
+
+.biTitle {
+  font-weight: var(--fw-bold);
+  font-size: 1.375rem;
+  letter-spacing: -0.2px;
+  margin-block-start: 0.25rem;
+}
+
+.biAuthor {
+  font-weight: var(--fw-thin);
+  color: var(--azure-blue);
+}
+
+.biActions {
+  display: flex;
+  list-style: none;
+  height: 1.5rem;
+  align-items: center;
+  margin-block-start: 1.125rem;
+}
+
+.biActionItem {
+  padding-inline: 1.063rem 0.938rem;
+  border-right: var(--common-border);
+}
+
+.biActionItem:nth-child(1) {
+  padding-inline-start: 0;
+}
+
+.biActionItem:last-child {
+  border-right: none;
+}
+
+.biActionButton {
+  cursor: pointer;
+  font-family: var(--ff-robotoslab);
+  font-weight: var(--fw-thin);
+  font-size: 0.875rem;
+  color: var(--azure-blue);
+  background-color: transparent;
+  border: none;
+}
+
+.biActionButton:hover {
+  color: var(--black-two);
+  text-decoration: underline var(--medium-blue);
+}
+
+.bpIconContainer {
+  --progressContainer: 5.625rem;
+
+  display: flex;
+  width: var(--progressContainer);
+  height: var(--progressContainer);
+  padding: 0.625rem 0.625rem 0.75rem 0.75rem;
+}
+
+.bpIcon {
+  --bpIconSize: 4.25rem;
+
+  width: var(--bpIconSize);
+  height: var(--bpIconSize);
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.bpIcon.bpPer {
+  background-image: conic-gradient(var(--medium-blue) 0%, var(--progress-color) 0);
+}
+
+.bpIcon .bpIconInner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: var(--white);
+}
+
+.bpData {
+  flex-grow: 1.9;
+  display: flex;
+  flex-direction: column;
+  margin-block: 1.125rem;
+  border-right: var(--common-border);
+}
+
+.bpPercentage {
+  font-weight: normal;
+  font-size: 2rem;
+  margin-inline: 0.75rem 1.5rem;
+}
+
+.bpCompleted {
+  font-size: 0.875rem;
+  opacity: 0.5;
+  margin-inline: 0.75rem 1.5rem;
+}
+
+.bchCurrent {
+  font-weight: var(--fw-thin);
+  font-size: 0.813rem;
+  color: var(--black-two);
+  opacity: 0.5;
+  margin-block-end: 0.438rem;
+}
+
+.bchName {
+  font-size: 1rem;
+  font-weight: var(--fw-thin);
+  letter-spacing: -0.4px;
+  color: var(--black-two);
+}
+
+.bchUpdateButton {
+  cursor: pointer;
+  font-size: 0.813rem;
+  font-weight: var(--fw-thin);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--white);
+  background-color: var(--azure);
+  padding: 0.5rem 1.28rem;
+  border: var(--clear-border);
+  border-radius: 3px;
+  margin-block-start: 1.25rem;
+}
+
+.bchUpdateButton:hover {
+  color: var(--azure);
+  background-color: var(--black-5);
+  border: var(--hover-border);
+}
+
+.bchUpdateButton:active {
+  color: var(--white);
+  background-color: var(--black-two);
+  opacity: 0.8;
+}

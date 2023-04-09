@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../../redux/books/booksSlice';
+import { deleteBook } from '../../redux/books/booksSlice';
 
 const ActionButtons = ({ data }) => {
   const actionsList = '1,comments]-[2,remove]-[3,edit';
@@ -14,7 +14,9 @@ const ActionButtons = ({ data }) => {
       const onClickHandler = (e) => {
         if (e.target.id === 'remove') {
           const { id } = e.target.parentElement.parentElement.dataset;
-          dispatch(removeBook(id));
+          const targetBook = { item_id: id };
+
+          dispatch(deleteBook(targetBook));
         }
       };
 

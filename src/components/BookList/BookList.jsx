@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBooks, selectLibrary, selectIsLoading } from '../../redux/books/booksSlice';
+import { fetchBooks } from '../../redux/books/booksSlice';
+import { selectLibrary, selectIsLoading } from '../../redux/books/booksSelectors';
 import Book from '../Book/Book';
 
 const BookList = () => {

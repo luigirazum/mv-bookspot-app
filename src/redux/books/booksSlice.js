@@ -1,13 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import apiRequest from '../api/apiConfig';
-import asyncSleep from '../initializers/sleepTimer';
-
-/*-------------------------------------------------
- * Selectors DEFINITIONS (for useSelector)
- *-------------------------------------------------*/
-const selectLibrary = (store) => store.books.library;
-const selectIsLoading = (store) => store.books.isLoading;
+import asyncSleep from '../helpers/sleepTimer';
 
 /*-------------------------------------------------
  * Action Type DEFINITIONS
@@ -187,8 +181,6 @@ const booksSlice = createSlice({
         }));
   },
 });
-
-export { selectLibrary, selectIsLoading };
 
 export const { addBook, removeBook } = booksSlice.actions;
 

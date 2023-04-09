@@ -33,7 +33,7 @@ const Categories = () => {
             <h2 className="categoriesTitle">Categories</h2>
             {
               status ? (
-                <h3 className="loading">
+                <h3 className="underContruction">
                   {status}
                 </h3>
               ) : (
@@ -46,7 +46,6 @@ const Categories = () => {
                 </button>
               )
             }
-
           </>
         )
       }

@@ -24,7 +24,7 @@ const initialState = {
 const fetchBooks = createAsyncThunk(
   FETCH_BOOKS,
   async (_, thunkAPI) => {
-    await asyncSleep(3.5);
+    await asyncSleep(1.5);
     try {
       const { data } = await axios
         .request(apiRequest('GET'));
@@ -39,6 +39,7 @@ const fetchBooks = createAsyncThunk(
 const saveBook = createAsyncThunk(
   SAVE_BOOK,
   async (newBook, thunkAPI) => {
+    await asyncSleep(1.5);
     try {
       await axios
         .request(apiRequest('POST', newBook));
@@ -63,6 +64,7 @@ const saveBook = createAsyncThunk(
 const deleteBook = createAsyncThunk(
   DELETE_BOOK,
   async (bookId, thunkAPI) => {
+    await asyncSleep(1.5);
     try {
       await axios
         .request(apiRequest('DELETE', bookId));

@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import ActionButtons from '../ActionButtons/ActionButtons';
+import { selectBookById } from '../../redux/books/booksSelectors';
 
-const Book = ({
-  bookItem: {
-    id, title, author, category, chapterName, percent,
-  },
-}) => {
+const Book = ({ bookItem: { id } }) => {
+  const [book] = useSelector((store) => selectBookById(store, id));
+  const {
+    title, author, category, chapterName, percent,
+  } = book;
+
   const bpRingStyle = {
-    backgroundImage: `conic-gradient(var(--medium-blue) ${percent}%, var(--progress-color) 0)`,
+    backgroundImage: `conic-gradient(var(--color-blue-x) ${percent}%, var(--progress-color) 0)`,
   };
 
   return (
@@ -16,15 +19,13 @@ const Book = ({
         <h3 className="bookCategory">
           {category}
         </h3>
-        <div className="bookData">
-          <div className="bookDescription">
-            <h2 className="bookTitle">
-              {title}
-            </h2>
-            <p className="bookAuthor">
-              {author}
-            </p>
-          </div>
+        <div className="bookDescription">
+          <h2 className="bookTitle">
+            {title}
+          </h2>
+          <p className="bookAuthor">
+            {author}
+          </p>
         </div>
         <ActionButtons data={id} />
       </section>
@@ -47,7 +48,7 @@ const Book = ({
       <section className="bookChapter">
         <h6 className="bchCurrent">Current Chapter</h6>
         <p className="bchName">{chapterName}</p>
-        <button type="button" className="bchUpdateButton">
+        <button type="button" className="btn btn-upd">
           Update Progress
         </button>
       </section>

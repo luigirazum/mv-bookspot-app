@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { saveBook } from '../../redux/books/booksSlice';
-import getRandomCategory from '../../redux/initializers/categoryInitializer';
+import getRandomCategory from '../../redux/helpers/categoryInitializer';
 
 const AddBook = () => {
   const [newTitle, setNewTitle] = useState('');

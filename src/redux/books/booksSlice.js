@@ -155,6 +155,33 @@ const booksSlice = createSlice({
           ...state,
           isLoading: false,
           error: payload,
+        }))
+
+      .addCase(deleteBook.pending,
+        (state) => ({
+          ...state,
+          isLoading: true,
+        }))
+
+      .addCase(deleteBook.fulfilled,
+        (state, { payload: { id } }) => {
+          const { library } = state;
+
+          const newLibrary = library
+            .filter((book) => book.id !== id) || [];
+
+          return ({
+            ...state,
+            library: newLibrary,
+            isLoading: false,
+          });
+        })
+
+      .addCase(deleteBook.rejected,
+        (state, { payload }) => ({
+          ...state,
+          isLoading: false,
+          error: payload,
         }));
   },
 });

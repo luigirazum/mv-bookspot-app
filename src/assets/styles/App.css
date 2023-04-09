@@ -335,12 +335,14 @@ ul {
   width: var(--progressContainer);
   height: var(--progressContainer);
   align-content: center;
+
   /* padding: 0.625rem 0.625rem 0.75rem 0.75rem; */
 }
 
 .bpIcon {
   --bpIconSize: 4.25rem;
   --bpIconInner: 3.75rem;
+
   width: var(--bpIconSize);
   height: var(--bpIconSize);
   position: relative;
@@ -628,6 +630,7 @@ input:invalid:focus {
     padding-inline: 1.125rem;
   }
 }
+
 /* EOF: ms mxw-768px */
 
 @media screen and (max-width: 480px) {
@@ -681,6 +684,7 @@ input:invalid:focus {
     flex-basis: 100%;
   }
 }
+
 /* EOF: ms mxw-480px */
 
 .bchCurrent {

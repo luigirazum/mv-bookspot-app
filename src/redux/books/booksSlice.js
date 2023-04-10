@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import apiRequest from '../api/apiConfig';
 import asyncSleep from '../helpers/sleepTimer';
+import getFullData from '../helpers/bookData';
 
 /*-------------------------------------------------
  * Action Type DEFINITIONS
@@ -42,12 +43,14 @@ const saveBook = createAsyncThunk(
         item_id: id, title, author, category,
       } = newBook;
 
-      return ({
-        id,
-        title,
-        author,
-        category,
-      });
+      return (
+        getFullData({
+          id,
+          title,
+          author,
+          category,
+        })
+      );
     } catch (error) {
       return thunkAPI
         .rejectWithValue('We are sorry to tell you that something went wrong.');
@@ -109,12 +112,14 @@ const booksSlice = createSlice({
       .addCase(fetchBooks.fulfilled,
         (state, { payload: data }) => {
           const fetchedLibrary = Object.entries(data)
-            .map((b) => (
-              {
+            .map((b) => {
+              const fetchBook = {
                 id: b[0],
                 ...data[b[0]][0],
-              }
-            ));
+              };
+
+              return (getFullData(fetchBook));
+            });
 
           return ({
             ...state,

@@ -319,13 +319,13 @@ ul {
 }
 
 .bookInfo {
-  flex-basis:23rem;
+  flex-basis:18.5rem;
   flex-grow: 80;
 }
 
 .bookProgress {
   flex-grow: 50;
-  flex-basis: 13rem;
+  flex-basis: 10rem;
   display: flex;
   padding-block: 0.38rem 0.625rem;
 }
@@ -384,10 +384,10 @@ ul {
 }
 
 .bookChapter {
-  flex-basis: 15rem;
+  flex-basis: 12.5rem;
   flex-grow: 80;
   margin-block: auto;
-  padding-inline: 1.5rem;
+  padding-inline: 0.5rem;
   margin-inline-start: 1.5rem;
   padding-block: 0 0.188rem;
 }

@@ -316,23 +316,14 @@ ul {
 .book {
   display: flex;
   flex-wrap: wrap;
-  transition: background-color 150ms linear,
-              transform 200ms ease-in,
-              border 150ms ease;
-}
-
-.book:hover,
-.book:hover .bpSpinner::after {
-  background-color: var(--color-gray-pale);
-}
-
-.book:hover {
-  transform: scale(1.0125);
-  border: var(--border-active);
+  transition:
+    background-color 150ms linear,
+    transform 200ms ease-in,
+    border 150ms ease;
 }
 
 .bookInfo {
-  flex-basis:18.5rem;
+  flex-basis: 18.5rem;
   flex-grow: 80;
 }
 
@@ -372,6 +363,16 @@ ul {
   height: var(--spin-clear-size);
   background-color: var(--color-white);
   border-radius: 50%;
+}
+
+.book:hover,
+.book:hover .bpSpinner::after {
+  background-color: var(--color-gray-pale);
+}
+
+.book:hover {
+  transform: scale(1.0125);
+  border: var(--border-active);
 }
 
 .bpData {

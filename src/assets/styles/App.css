@@ -330,6 +330,7 @@ ul {
 
 .bpSpinnerIcon {
   --spinner-size: 5.625rem;
+
   display: flex;
   width: var(--spinner-size);
   height: var(--spinner-size);
@@ -348,7 +349,6 @@ ul {
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  /* background-image: conic-gradient(var(--color-blue-x) var(--spin-percent), var(--color-gray-c4) 0deg); */
 }
 
 .bpSpinner::after {

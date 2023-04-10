@@ -33,7 +33,7 @@ const Categories = () => {
             <h2 className="categoriesTitle">Categories</h2>
             {
               status ? (
-                <h3 className="underContruction">
+                <h3 className="underConstruction">
                   {status}
                 </h3>
               ) : (

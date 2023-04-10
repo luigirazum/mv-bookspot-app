@@ -328,39 +328,35 @@ ul {
   padding-block: 0.38rem 0.625rem;
 }
 
-.bpIconContainer {
-  --progressContainer: 5.625rem;
-
+.bpSpinnerIcon {
+  --spinner-size: 5.625rem;
   display: flex;
-  width: var(--progressContainer);
-  height: var(--progressContainer);
+  width: var(--spinner-size);
+  height: var(--spinner-size);
   padding: 0.625rem 0.625rem 0.75rem 0.75rem;
   justify-content: center;
   align-items: center;
 }
 
-.bpIcon {
-  --bpIconSize: 4.25rem;
-  --bpIconInner: 3.75rem;
+.bpSpinner {
+  --spin-solid-size: 4.25rem;
+  --spin-clear-size: calc(var(--spin-solid-size) - 12px);
 
-  width: var(--bpIconSize);
-  height: var(--bpIconSize);
-  position: relative;
+  width: var(--spin-solid-size);
+  height: var(--spin-solid-size);
+  display: flex;
   border-radius: 50%;
-  overflow: hidden;
-  align-content: center;
-  background-image: conic-gradient(var(--color-blue-x) 0%, var(--progress-color) 0);
+  justify-content: center;
+  align-items: center;
+  /* background-image: conic-gradient(var(--color-blue-x) var(--spin-percent), var(--color-gray-c4) 0deg); */
 }
 
-.bpIcon .bpIconInner {
-  position: absolute;
-  width: var(--bpIconInner);
-  height: var(--bpIconInner);
-  top: 50%;
-  left: 50%;
-  transform: translate(-49%, -51%);
-  border-radius: 50%;
+.bpSpinner::after {
+  content: '';
+  width: var(--spin-clear-size);
+  height: var(--spin-clear-size);
   background-color: var(--color-white);
+  border-radius: 50%;
 }
 
 .bpData {
